@@ -1,0 +1,30 @@
+<div *ngIf="produit" class="p-6 bg-white rounded-lg shadow-lg max-w-4xl mx-auto flex flex-col lg:flex-row gap-6">
+    <!-- Information left -->
+    <div class="flex-1 space-y-4">
+        <h2 class="text-3xl font-semibold text-gray-900">{{ produit.name }}</h2>
+        
+        <div class="space-y-2 text-sm text-gray-700">
+            <p><strong>Code:</strong> {{ produit.code }}</p>
+            <p><strong>Description:</strong> {{ produit.description }}</p>
+            <p><strong>Category:</strong> {{ produit.category }}</p>
+            <p><strong>Price:</strong> {{ produit.price | currency }}</p>
+            <p><strong>Quantity:</strong> {{ produit.quantity }}</p>
+            <p><strong>Internal Reference:</strong> {{ produit.internalReference }}</p>
+            <p><strong>Shell ID:</strong> {{ produit.shellId }}</p>
+            <p><strong>Inventory Status:</strong> {{ produit.inventoryStatus }}</p>
+            <p><strong>Rating:</strong> {{ produit.rating }}</p>
+          
+        </div>
+
+        
+    </div>
+
+    <!-- Image right -->
+    <div class="flex-shrink-0 w-full lg:w-1/3">
+        <img 
+            [src]="produit.images || 'https://www.startpage.com/av/proxy-image?piurl=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.wMftsrP6USIHg4aMEpwnPQHaHa%26pid%3DApi&sp=1732825887T48b4b57c234c6a8c2f13c011dfc799a8f16d165099cfe1574eeea71408eb9f6f'" 
+            alt="{{ produit.name }}" 
+            class="w-full h-full object-cover rounded-md shadow-md"
+        />
+    </div>
+</div>

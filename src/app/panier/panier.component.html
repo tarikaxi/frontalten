@@ -1,0 +1,32 @@
+<!-- panier.component.html -->
+<div class="container mx-auto p-4">
+    <h1 class="text-2xl font-bold mb-4">Mon Panier</h1>
+    <div *ngIf="cartItems.length === 0" class="text-center text-gray-500">
+      <p>Votre panier est vide.</p>
+    </div>
+    <div *ngIf="cartItems.length > 0">
+      <ul class="space-y-4">
+        <li *ngFor="let item of cartItems" class="flex justify-between items-center bg-gray-100 p-3 rounded-md">
+          <div class="flex flex-col">
+            <span class="font-semibold">{{ item.name }}</span>
+            <span class="text-sm text-gray-500">Prix: {{ item.price | currency }}</span>
+          </div>
+          <button
+            class="bg-red-500 text-white py-1 px-3 rounded-full"
+            (click)="removeFromCart(item.id)">
+            Supprimer
+          </button>
+        </li>
+      </ul>
+  
+      <div class="mt-6 flex justify-between items-center">
+        <span class="font-semibold">Total : {{ total | currency }}</span>
+        <button
+          class="bg-green-500 text-white py-2 px-6 rounded-full"
+          (click)="clearCart()">
+          Vider le panier
+        </button>
+      </div>
+    </div>
+  </div>
+  

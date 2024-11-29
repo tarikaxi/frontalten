@@ -1,0 +1,28 @@
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4 bg-red-100">
+    <div *ngFor="let produit of produits" class="bg-white border border-gray-200 rounded-lg shadow-md p-4">
+      <img 
+        [src]="produit.images" 
+        alt="{{ produit.name }}" 
+        class="w-full h-48 object-cover rounded-md mb-4" 
+      />
+      
+      <h2 class="text-xl font-semibold text-gray-900">{{ produit.name }}</h2>
+      
+      <p class="text-sm text-gray-500"><strong>Price:</strong> {{ produit.price | currency }}</p>
+      <p class="text-sm text-gray-500"><strong>Available:</strong> {{ produit.quantity }} in stock</p>
+      <p class="text-sm text-gray-500"><strong>Category:</strong> {{ produit.category }}</p>
+      <br>
+      <a [routerLink]="['/produit', produit.id]" class="mt-4 text-red-600 hover:text-red-800 font-semibold focus:outline-none">Details</a>
+      <br>
+  
+      <button (click)="deleteProduit(produit.id)" class="mt-4 text-red-600 hover:text-red-800 font-semibold focus:outline-none">
+        Supprimer
+      </button>
+      <br>
+      <button (click)="addToCart(produit)" class="mt-4 text-red-600 hover:text-red-800 font-semibold focus:outline-none">
+        Ajouter au panier
+      </button>
+      
+    </div>
+  </div>
+  
